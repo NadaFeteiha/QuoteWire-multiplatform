@@ -3,7 +3,15 @@ plugins {
     kotlin("native.cocoapods")
     id("com.android.library")
     id("org.jetbrains.compose")
+    kotlin("plugin.serialization").version("1.8.20")
 }
+
+//val ktorVersion = extra["ktor.version"]
+val coroutinesVersion = "1.6.4"
+val ktorVersion = "2.2.4"
+val koinVersion = "3.2.0"
+val napierVersion = "2.6.1"
+val mokoMvvmVersion = "0.13.1"
 
 kotlin {
     android()
@@ -22,7 +30,8 @@ kotlin {
             baseName = "shared"
             isStatic = true
         }
-        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
+        extraSpecAttributes["resources"] =
+            "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
     }
 
     sourceSets {
@@ -33,6 +42,33 @@ kotlin {
                 implementation(compose.material)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
+
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+
+
+                implementation("io.ktor:ktor-client-core:$ktorVersion")
+                implementation("io.ktor:ktor-client-json:$ktorVersion")
+                implementation("io.ktor:ktor-client-logging:$ktorVersion")
+                implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+                implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+                implementation("io.ktor:ktor-client-core:$ktorVersion")
+                implementation("io.ktor:ktor-client-content-negotiation:2.0.3")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:2.0.3")
+                implementation("io.ktor:ktor-client-logging:2.0.3")
+                implementation("io.insert-koin:koin-core:$koinVersion")
+                implementation("io.insert-koin:koin-test:$koinVersion")
+                api("com.arkivanov.decompose:decompose:2.0.0-compose-experimental-alpha-02")
+                api("com.arkivanov.decompose:extensions-compose-jetbrains:2.0.0-compose-experimental-alpha-02")
+                api("com.arkivanov.essenty:parcelable:1.1.0")
+                implementation("io.github.aakira:napier:$napierVersion")
+
+                implementation("dev.icerock.moko:mvvm-core:$mokoMvvmVersion")
+
+
             }
         }
         val androidMain by getting {
@@ -40,6 +76,10 @@ kotlin {
                 api("androidx.activity:activity-compose:1.6.1")
                 api("androidx.appcompat:appcompat:1.6.1")
                 api("androidx.core:core-ktx:1.9.0")
+
+                implementation("io.ktor:ktor-client-android:$ktorVersion")
+
+                api("io.insert-koin:koin-android:$koinVersion")
             }
         }
         val iosX64Main by getting
@@ -50,6 +90,11 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
+            dependencies {
+                implementation ("app.cash.sqldelight:native-driver:2.0.0-alpha05")
+                implementation("io.ktor:ktor-client-darwin:$ktorVersion")
+            }
+
         }
     }
 }
