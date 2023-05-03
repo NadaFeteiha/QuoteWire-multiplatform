@@ -20,17 +20,17 @@ struct DetailScreen: View {
      var quoteImage: QuoteImage
 
     var body: some View {
-        AsyncImage(url: URL(string: quoteImage.imageURL)){image in
-            image.resizable()
-                .aspectRatio(contentMode: .fit)
-                .cornerRadius(10)
-        }placeholder: {
-            Color.gray
-        }.padding(12)
-        
-        Button("share"){
-            
-        }
+         AsyncImage(url: URL(string: quoteImage.imageURL)){image in
+             image.resizable()
+                 .aspectRatio(contentMode: .fit)
+                 .cornerRadius(10)
+         }placeholder: {
+             Color.gray
+         }.padding(12)
+
+         Button("share"){
+
+         }
     }
     
 }

@@ -1,8 +1,8 @@
 package di
 
-import data.remote.service.ImageServiceImpl
+import data.remote.service.ImageService
 import data.repository.Repository
-import domain.RepositoryImp
+import data.repository.RepositoryImp
 import domain.mappers.ImageMapper
 import domain.usecase.GetImagesUseCase
 import kotlinx.coroutines.CoroutineScope
@@ -20,7 +20,7 @@ fun getSharedModules() = module {
 
     single { CoroutineScope(Dispatchers.Default + SupervisorJob()) }
 
-    factory { ImageServiceImpl() }
+    factory { ImageService() }
 
     single<Repository> { RepositoryImp(get()) }
 
