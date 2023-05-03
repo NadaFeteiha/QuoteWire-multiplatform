@@ -14,16 +14,18 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import org.koin.androidx.compose.koinViewModel
 import com.myapplication.ui.compose.RoundedSquare
+import com.myapplication.ui.screen.quoteView.navigateToQuote
 import ui.modifiers.nonRippleEffect
 
 @Composable
 fun HomeScreen(
+    navController: NavController,
     viewModel: HomeViewModel = koinViewModel(),
-    onQuoteClicked: (String) -> Unit,
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
@@ -45,7 +47,13 @@ fun HomeScreen(
 
         items(uiState.images) { quote ->
             RoundedSquare(
-                modifier = Modifier.nonRippleEffect { onQuoteClicked(quote.imageURL) },
+                modifier = Modifier.nonRippleEffect {
+                    navController.navigateToQuote(
+                        quote.id,
+                        quoteUrl = quote.imageURL,
+                        quoteDownloadLink = quote.downloadLink
+                    )
+                },
                 imageUrl = quote.imageURL,
                 cornerRadius = 25.dp
             )

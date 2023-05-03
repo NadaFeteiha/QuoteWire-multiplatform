@@ -8,6 +8,6 @@ interface Repository {
     /**
      * Images
      * */
-    suspend fun getImagesWithQuote(keyword: String): List<ImageDTO>
+    suspend fun getImagesWithQuote(page: Int = 1): List<ImageDTO>
 
 }

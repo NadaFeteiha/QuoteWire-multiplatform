@@ -12,16 +12,8 @@ class GetImagesUseCase : KoinComponent {
     private val repository: Repository by inject()
     private val imageMapper: ImageMapper by inject()
 
-    suspend fun getImagesWithQuote(): List<QuoteImage> {
-        return getImages(keyword = "quote")
-    }
-
-    suspend fun getImages(): List<QuoteImage> {
-        return getImages(keyword = "background")
-    }
-
-    private suspend fun getImages(keyword: String): List<QuoteImage> {
-        val result = repository.getImagesWithQuote(keyword = keyword)
+    suspend operator fun invoke(): List<QuoteImage> {
+        val result = repository.getImagesWithQuote()
         return result.map { imageMapper.map(it) }
     }
 }
