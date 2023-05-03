@@ -15,28 +15,29 @@ import shared
 extension HomeScreen {
     @MainActor class HomeViewModel: ObservableObject {
         
-         @Published private(set) var images:[QuoteImage] = []
-         @Published private(set) var isLoading: Bool = false
 
-         private var currentPage = 1
-         private(set) var loadFinished: Bool = false
+        @Published private(set) var images:[QuoteImage] = []
+        @Published private(set) var isLoading: Bool = false
 
-         func loadImages() async {
-             if isLoading {
-                 return
-             }
+        private var currentPage = 1
+        private(set) var loadFinished: Bool = false
 
-             do {
-                 self.images = try await GetImagesUseCase.init()
-                 print(self.images)
-                 isLoading = false
+        func loadImages() async {
+            if isLoading {
+                return
+            }
 
-             } catch {
-                 isLoading = false
-                 loadFinished = true
+            do {
+                self.images = try await GetImagesUseCase.init().invoke()
+                print(self.images)
+                isLoading = false
 
-                 print(error.localizedDescription)
-             }
-         }
+            } catch {
+                isLoading = false
+                loadFinished = true
+
+                print(error.localizedDescription)
+            }
+        }
     }
 }

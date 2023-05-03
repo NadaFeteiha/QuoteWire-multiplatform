@@ -16,4 +16,5 @@ class GetImagesUseCase : KoinComponent {
         val result = repository.getImagesWithQuote()
         return result.map { imageMapper.map(it) }
     }
+
 }
