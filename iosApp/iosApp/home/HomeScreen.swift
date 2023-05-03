@@ -20,22 +20,23 @@ struct HomeScreen: View {
     
     var body: some View {
 
-        NavigationStack{
+        NavigationView{
             
             ScrollView{
                 LazyVGrid(columns: gridColumns, spacing: 16){
                     
                     ForEach(viewModel.images, id: \.id){quoteImage in
-                        
-                        NavigationLink(value: quoteImage){
-                            
+                        NavigationLink(destination: DetailScreen(quoteImage: quoteImage )) {
                             AsyncImage(url: URL(string: quoteImage.imageURL)){image in
-                                        image.resizable()
-                                    }placeholder: {
-                                        Color.gray
-                                    }
+                                image.resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(height: 100)
+                                    .cornerRadius(10)
+                            }placeholder: {
+                                Color.gray
+                            }
                         }
-                        .buttonStyle(PlainButtonStyle())
+                        
                     }
                     
                     if viewModel.isLoading {
@@ -44,16 +45,13 @@ struct HomeScreen: View {
                     
                 }
                 .padding(.horizontal, 12)
-//                .navigationDestination(for: Movie.self){movie in
-//                    DetailScreen(movie: movie)
-//                }
-                
             }
             .navigationTitle("Quotes ... ")
-            
         }
         .task {
             await viewModel.loadImages()
         }
     }
 }
+
+

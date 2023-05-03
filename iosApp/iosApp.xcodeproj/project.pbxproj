@@ -12,6 +12,7 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		551AB47C29FBAD52002D6DA4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551AB47B29FBAD52002D6DA4 /* HomeViewModel.swift */; };
 		551AB47E29FBAE30002D6DA4 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551AB47D29FBAE30002D6DA4 /* HomeScreen.swift */; };
+		553B59912A023360002A8AC6 /* DetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553B59902A023360002A8AC6 /* DetailScreen.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		CFDB58B53BB94DE262B13C24 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1049432C0C2B312090ABF6 /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
@@ -23,6 +24,7 @@
 		4FF3202A603A284706412EDC /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		551AB47B29FBAD52002D6DA4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		551AB47D29FBAE30002D6DA4 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		553B59902A023360002A8AC6 /* DetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; };
 		6B1049432C0C2B312090ABF6 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF7B242A565900829871 /* My application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			children = (
 				551AB47B29FBAD52002D6DA4 /* HomeViewModel.swift */,
 				551AB47D29FBAE30002D6DA4 /* HomeScreen.swift */,
+				553B59902A023360002A8AC6 /* DetailScreen.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				553B59912A023360002A8AC6 /* DetailScreen.swift in Sources */,
 				551AB47E29FBAE30002D6DA4 /* HomeScreen.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				551AB47C29FBAD52002D6DA4 /* HomeViewModel.swift in Sources */,
