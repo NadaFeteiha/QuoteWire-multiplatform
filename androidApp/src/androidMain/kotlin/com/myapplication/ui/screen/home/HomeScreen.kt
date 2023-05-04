@@ -44,7 +44,6 @@ fun HomeScreen(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-
         items(uiState.images) { quote ->
             RoundedSquare(
                 modifier = Modifier.nonRippleEffect {
