@@ -4,7 +4,9 @@ import domain.models.QuoteImage
 
 
 data class HomeUIState(
-    val images: List<QuoteImageUIState> = emptyList()
+    val images: List<QuoteImageUIState> = emptyList(),
+    val isLoading: Boolean = true,
+    val error: String = ""
 )
 
 data class QuoteImageUIState(

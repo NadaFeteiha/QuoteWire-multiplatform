@@ -14,9 +14,13 @@ class HomeViewModel(private val images: GetImagesUseCase) : ViewModel() {
     val uiState = _uiState.asStateFlow()
 
     init {
-//        need loading and error.
+        _uiState.tryEmit(HomeUIState())
         viewModelScope.launch {
-            _uiState.update { it.copy(images = images().toUIState()) }
+            try {
+                _uiState.update { it.copy(images = images().toUIState(), isLoading = false) }
+            } catch (t: Throwable) {
+                _uiState.update { it.copy(error = t.toString(), isLoading = false) }
+            }
         }
     }
 
