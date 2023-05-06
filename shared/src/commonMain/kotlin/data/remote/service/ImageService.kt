@@ -57,8 +57,12 @@ class ImageService {
         page: Int = 1,
         orientation: String = "portrait"
     ): ImageResponse {
-        return client.get {
-            quote("search/photos?query=$quote&orientation=$orientation&per_page=$numPerPage&page=$page&client_id=oQG-FbLBgfmCgktGaeJwDfBpAVxSGQxY9QOe1PWYges")
-        }.body()
+        return try {
+            client.get {
+                quote("search/photos?query=$quote&orientation=$orientation&per_page=$numPerPage&page=$page&client_id=oQG-FbLBgfmCgktGaeJwDfBpAVxSGQxY9QOe1PWYges")
+            }.body()
+        } catch (throwable: Throwable) {
+            throw throwable
+        }
     }
 }

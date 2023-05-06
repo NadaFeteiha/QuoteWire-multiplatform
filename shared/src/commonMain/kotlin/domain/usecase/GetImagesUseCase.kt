@@ -13,8 +13,14 @@ class GetImagesUseCase : KoinComponent {
     private val imageMapper: ImageMapper by inject()
 
     suspend operator fun invoke(): List<QuoteImage> {
-        val result = repository.getImagesWithQuote()
-        return result.map { imageMapper.map(it) }
+        //need to return uiState loading ,error, success
+        return try {
+            val result = repository.getImagesWithQuote()
+            result.map { imageMapper.map(it) }
+        } catch (throwable: Throwable) {
+            throw throwable
+        }
+
     }
 
 }
