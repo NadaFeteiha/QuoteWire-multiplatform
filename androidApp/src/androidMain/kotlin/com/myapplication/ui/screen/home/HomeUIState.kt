@@ -12,7 +12,7 @@ data class HomeUIState(
 data class QuoteImageUIState(
     val id: String = "",
     val imageURL: String = "",
-    val downloadLink: String = ""
+    val downloadLink: String = "",
 )
 
 fun List<QuoteImage>.toUIState() = map { it.toUIState() }

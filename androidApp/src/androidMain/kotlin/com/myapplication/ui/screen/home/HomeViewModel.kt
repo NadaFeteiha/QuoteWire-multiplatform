@@ -17,7 +17,8 @@ class HomeViewModel(private val images: GetImagesUseCase) : ViewModel() {
         _uiState.tryEmit(HomeUIState())
         viewModelScope.launch {
             try {
-                _uiState.update { it.copy(images = images().toUIState(), isLoading = false) }
+                val quotes = images()
+                _uiState.update { it.copy(images = quotes.toUIState(), isLoading = false) }
             } catch (t: Throwable) {
                 _uiState.update { it.copy(error = t.toString(), isLoading = false) }
             }

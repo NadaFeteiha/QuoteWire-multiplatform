@@ -13,5 +13,7 @@ data class ImageDTO(
     @SerialName("links")
     val links: ImageDownloadLinks?,
     @SerialName("urls")
-    val urls: ImageURLs?
+    val urls: ImageURLs?,
+    @SerialName("alt_description")
+    val description: String?
 )

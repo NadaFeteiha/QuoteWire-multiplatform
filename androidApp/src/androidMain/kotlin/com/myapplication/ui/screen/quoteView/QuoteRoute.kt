@@ -5,16 +5,17 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.myapplication.ui.screen.home.QuoteImageUIState
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
 
 private const val ROUTE_QUOTE = "QuoteRoute"
 
-fun NavController.navigateToQuote(id: String, quoteUrl: String, quoteDownloadLink: String) {
-    val quoteUrl = URLEncoder.encode(quoteUrl, StandardCharsets.UTF_8.toString())
-    val quoteDownloadLink = URLEncoder.encode(quoteDownloadLink, StandardCharsets.UTF_8.toString())
-    navigate("$ROUTE_QUOTE/$id/$quoteUrl/$quoteDownloadLink")
+fun NavController.navigateToQuote(quote: QuoteImageUIState) {
+    val quoteUrl = URLEncoder.encode(quote.imageURL, StandardCharsets.UTF_8.toString())
+    val quoteDownloadLink = URLEncoder.encode(quote.downloadLink, StandardCharsets.UTF_8.toString())
+    navigate("$ROUTE_QUOTE/${quote.id}/$quoteUrl/$quoteDownloadLink")
 }
 
 fun NavGraphBuilder.quoteRoute(navController: NavController) {

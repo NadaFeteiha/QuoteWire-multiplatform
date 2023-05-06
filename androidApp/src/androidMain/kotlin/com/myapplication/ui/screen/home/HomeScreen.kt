@@ -66,13 +66,7 @@ fun HomeScreen(
             ) {
                 items(uiState.images) { quote ->
                     RoundedSquare(
-                        modifier = Modifier.nonRippleEffect {
-                            navController.navigateToQuote(
-                                quote.id,
-                                quoteUrl = quote.imageURL,
-                                quoteDownloadLink = quote.downloadLink
-                            )
-                        },
+                        modifier = Modifier.nonRippleEffect { navController.navigateToQuote(quote) },
                         imageUrl = quote.imageURL,
                         cornerRadius = 25.dp
                     )

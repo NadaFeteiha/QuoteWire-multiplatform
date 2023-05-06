@@ -19,7 +19,7 @@ class QuoteViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             it.copy(
                 id = args.quoteId,
                 imageURL = args.quoteURL,
-                downloadLink = args.quoteDownloadLink
+                downloadLink = args.quoteDownloadLink,
             )
         }
     }

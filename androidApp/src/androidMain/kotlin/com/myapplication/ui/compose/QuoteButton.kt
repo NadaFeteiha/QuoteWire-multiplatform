@@ -34,7 +34,8 @@ fun QuoteButton(
                     bottomEnd = cornerRadius,
                     bottomStart = 0.dp
                 )
-            ).background(MaterialTheme.colorScheme.secondary),
+            )
+            .background(MaterialTheme.colorScheme.secondary),
         contentAlignment = Alignment.Center,
     ) {
         Text(
