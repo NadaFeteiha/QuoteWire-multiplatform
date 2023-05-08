@@ -17,6 +17,13 @@ struct HomeScreen: View {
     
     let gridColumns: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 16), count: 2)
 
+    init() {
+        let font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: UIFont(name: "DancingScript-Bold", size: 30)!)
+        UINavigationBar.appearance().tintColor = UIColor(rgb: 0xFF121213)
+        UINavigationBar.appearance().largeTitleTextAttributes = [ .foregroundColor: UIColor(rgb: 0xFF121213), .font: font    ]
+    }
+    
+    
     var body: some View {
         
         NavigationView{
@@ -45,9 +52,11 @@ struct HomeScreen: View {
                     
                 }
                 .padding(.horizontal, 12)
-            }
-            .navigationTitle("Quotes ... ")
-        }
+            }.background(Color(UIColor(rgb: 0xFFFCF8F5)))
+            .navigationTitle("Quote Wire")
+            .navigationBarTitleDisplayMode(.inline)
+            .font(Font.custom("DancingScript-Bold", size: 24))
+        } .accentColor(Color(UIColor(rgb: 0xFFFCF8F5)))
         .task {
             await viewModel.loadImages()
         }
