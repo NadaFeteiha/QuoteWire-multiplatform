@@ -4,6 +4,7 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.compose")
     kotlin("plugin.serialization").version("1.8.20")
+    id("com.squareup.sqldelight")
 }
 
 //val ktorVersion = extra["ktor.version"]
@@ -12,6 +13,7 @@ val ktorVersion = "2.2.4"
 val koinVersion = "3.2.0"
 val napierVersion = "2.6.1"
 val mokoMvvmVersion = "0.13.1"
+val sqlDelightVersion = "1.5.5"
 
 kotlin {
     android()
@@ -68,6 +70,10 @@ kotlin {
 
                 implementation("dev.icerock.moko:mvvm-core:$mokoMvvmVersion")
 
+                // SQL Delight
+                implementation("com.squareup.sqldelight:runtime:$sqlDelightVersion")
+
+
             }
         }
         val androidMain by getting {
@@ -79,6 +85,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-android:$ktorVersion")
 
                 api("io.insert-koin:koin-android:$koinVersion")
+                implementation("com.squareup.sqldelight:android-driver:$sqlDelightVersion")
             }
         }
         val iosX64Main by getting
@@ -90,8 +97,10 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
             dependencies {
-                implementation ("app.cash.sqldelight:native-driver:2.0.0-alpha05")
+//                implementation ("app.cash.sqldelight:native-driver:2.0.0-alpha05")
                 implementation("io.ktor:ktor-client-darwin:$ktorVersion")
+                implementation("com.squareup.sqldelight:native-driver:$sqlDelightVersion")
+
             }
 
         }
@@ -116,5 +125,12 @@ android {
     }
     kotlin {
         jvmToolchain(11)
+    }
+}
+
+sqldelight {
+    database("QuoteDB") {
+        packageName = "data.sqldelight"
+        sourceFolders = listOf("kotlin")
     }
 }

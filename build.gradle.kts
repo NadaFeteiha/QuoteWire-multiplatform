@@ -1,3 +1,12 @@
+buildscript {
+
+    val sqlDelightVersion = "1.5.5"
+
+    dependencies {
+        classpath("com.squareup.sqldelight:gradle-plugin:$sqlDelightVersion")
+    }
+}
+
 plugins {
     // this is necessary to avoid the plugins to be loaded multiple times
     // in each subproject's classloader

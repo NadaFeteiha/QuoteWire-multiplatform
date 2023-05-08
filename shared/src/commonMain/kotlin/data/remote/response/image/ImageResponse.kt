@@ -1,7 +1,6 @@
 package data.remote.response.image
 
 
-import data.remote.response.image.ImageDTO
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

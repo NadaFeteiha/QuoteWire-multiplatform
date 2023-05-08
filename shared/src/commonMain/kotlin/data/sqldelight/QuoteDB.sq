@@ -1,0 +1,23 @@
+CREATE TABLE quoteEntity (
+    id TEXT NOT NULL PRIMARY KEY,
+    imageUrl TEXT NOT NULL
+);
+
+getQuoteById:
+SELECT *
+FROM quoteEntity
+WHERE id = :id;
+
+
+insertQuote:
+INSERT OR REPLACE
+INTO quoteEntity
+VALUES(?,?);
+
+getAllQuote:
+SELECT *
+FROM quoteEntity;
+
+deleteQuote:
+DELETE FROM quoteEntity
+WHERE id = :id;
