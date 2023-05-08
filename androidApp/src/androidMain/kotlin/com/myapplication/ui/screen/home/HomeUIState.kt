@@ -6,6 +6,9 @@ import domain.models.QuoteImage
 data class HomeUIState(
     val images: List<QuoteImageUIState> = emptyList(),
     val isLoading: Boolean = true,
+    val isPagerLoading: Boolean = false,
+    val isEndOfPager: Boolean = false,
+    val pagerError: String = "",
     val error: String = ""
 )
 

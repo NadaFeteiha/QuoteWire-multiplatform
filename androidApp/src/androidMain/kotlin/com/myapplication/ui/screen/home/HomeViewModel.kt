@@ -14,6 +14,10 @@ class HomeViewModel(private val images: GetImagesUseCase) : ViewModel() {
     val uiState = _uiState.asStateFlow()
 
     init {
+        getInitData()
+    }
+
+    fun getInitData() {
         _uiState.tryEmit(HomeUIState())
         viewModelScope.launch {
             try {
@@ -21,6 +25,23 @@ class HomeViewModel(private val images: GetImagesUseCase) : ViewModel() {
                 _uiState.update { it.copy(images = quotes.toUIState(), isLoading = false) }
             } catch (t: Throwable) {
                 _uiState.update { it.copy(error = t.toString(), isLoading = false) }
+            }
+        }
+    }
+
+    fun getMoreQuotes() {
+        _uiState.update { it.copy(isPagerLoading = true, pagerError = "") }
+        viewModelScope.launch {
+            try {
+                val quotes = images.getMoreImages()
+                _uiState.update {
+                    it.copy(
+                        images = it.images + quotes.toUIState(),
+                        isPagerLoading = false
+                    )
+                }
+            } catch (t: Throwable) {
+                _uiState.update { it.copy(pagerError = t.toString(), isPagerLoading = false) }
             }
         }
     }

@@ -68,7 +68,6 @@ kotlin {
 
                 implementation("dev.icerock.moko:mvvm-core:$mokoMvvmVersion")
 
-
             }
         }
         val androidMain by getting {

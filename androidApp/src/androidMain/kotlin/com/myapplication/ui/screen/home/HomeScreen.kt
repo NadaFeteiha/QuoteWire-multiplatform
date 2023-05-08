@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -23,6 +24,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.myapplication.R
 import com.myapplication.ui.compose.ErrorLottieAnimations
 import com.myapplication.ui.compose.LottieAnimations
+import com.myapplication.ui.compose.ManualPager
 import com.myapplication.ui.compose.QuoteButton
 import com.myapplication.ui.compose.RoundedSquare
 import com.myapplication.ui.compose.TopAppBar
@@ -38,31 +40,26 @@ fun HomeScreen(
     viewModel: HomeViewModel = koinViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsState()
-    val state = remember { mutableStateOf(HomeUIState()) }
     val systemUIController = rememberSystemUiController()
     systemUIController.setStatusBarColor(color = MaterialTheme.colorScheme.background)
 
-    LaunchedEffect(Unit) {
-        viewModel.uiState.onEach {
-            state.value = it
-        }.launchIn(this)
-    }
-
-    Column(modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
+    Column(
+        modifier = Modifier.fillMaxSize().padding(bottom = 45.dp)
+            .background(MaterialTheme.colorScheme.background)
+    ) {
 
         TopAppBar(titleRes = R.string.app_name)
 
         if (uiState.error.isNotEmpty()) {
-            ErrorLottieAnimations(onClickTryAgain = {})
+            ErrorLottieAnimations(onClickTryAgain = viewModel::getInitData)
         } else if (uiState.isLoading) {
             LottieAnimations(lottieRes = R.raw.loading)
         } else {
-            LazyVerticalGrid(
-                columns = GridCells.Fixed(2),
-                modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(16.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ManualPager(
+                onRefresh = viewModel::getMoreQuotes,
+                isLoading = uiState.isPagerLoading,
+                error = uiState.pagerError,
+                isEndOfPager = uiState.isEndOfPager,
             ) {
                 items(uiState.images) { quote ->
                     RoundedSquare(

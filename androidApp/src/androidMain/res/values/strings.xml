@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Quote Wire</string>
+    <string name="try_again"> Try again? </string>
+    <string name="no_data">No more data</string>
+    <string name="no_internet">No internet</string>
+
 </resources>
