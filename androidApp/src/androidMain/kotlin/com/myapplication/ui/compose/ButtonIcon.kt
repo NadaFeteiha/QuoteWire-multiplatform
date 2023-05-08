@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.myapplication.ui.modifiers.bouncingClickable
 import ui.modifiers.nonRippleEffect
 
 @Composable
@@ -37,13 +38,15 @@ fun ButtonIcon(
                     bottomStart = 0.dp
                 )
             )
-            .background(MaterialTheme.colorScheme.background),
+            .background(MaterialTheme.colorScheme.background)
+            .bouncingClickable(onClick = onClick),
+
         contentAlignment = Alignment.Center,
     ) {
         Icon(
-            painter = painterResource(id = iconRes) ,
+            painter = painterResource(id = iconRes),
             contentDescription = description,
-            modifier = modifier.size(48.dp).padding(8.dp).nonRippleEffect { onClick() },
+            modifier = modifier.size(48.dp).padding(8.dp),
             tint = MaterialTheme.colorScheme.primary
         )
     }

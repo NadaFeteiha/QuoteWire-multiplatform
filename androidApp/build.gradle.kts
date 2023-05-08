@@ -31,6 +31,7 @@ kotlin {
                 implementation("io.coil-kt:coil-compose:$coilVersion")
                 implementation("com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion")
                 implementation("androidx.navigation:navigation-compose:$navVersion")
+
             }
         }
     }

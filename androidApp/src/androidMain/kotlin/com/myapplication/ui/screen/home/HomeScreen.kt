@@ -28,6 +28,7 @@ import com.myapplication.ui.compose.ManualPager
 import com.myapplication.ui.compose.QuoteButton
 import com.myapplication.ui.compose.RoundedSquare
 import com.myapplication.ui.compose.TopAppBar
+import com.myapplication.ui.modifiers.bouncingClickable
 import com.myapplication.ui.screen.quoteView.navigateToQuote
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -63,7 +64,7 @@ fun HomeScreen(
             ) {
                 items(uiState.images) { quote ->
                     RoundedSquare(
-                        modifier = Modifier.nonRippleEffect { navController.navigateToQuote(quote) },
+                        modifier = Modifier.bouncingClickable { navController.navigateToQuote(quote) },
                         imageUrl = quote.imageURL,
                         cornerRadius = 25.dp
                     )

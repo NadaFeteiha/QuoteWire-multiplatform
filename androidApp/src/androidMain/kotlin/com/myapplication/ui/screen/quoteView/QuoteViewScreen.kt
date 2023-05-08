@@ -65,8 +65,8 @@ fun QuoteViewScreen(
         onClickShare = { shareImage(state.imageURL, context = context) },
         onClickDownload = {
             // TODO: enable download until Done downloading..
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
-                // Request MANAGE_EXTERNAL_STORAGE permission for Android 11 and higher
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S_V2) {
+                // Request MANAGE_EXTERNAL_STORAGE permission for Android 13 and higher
                 downloadImage.launch(Manifest.permission.READ_MEDIA_IMAGES)
             } else {
                 // Request WRITE_EXTERNAL_STORAGE permission for Android 10 and lower
