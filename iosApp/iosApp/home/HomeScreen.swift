@@ -11,7 +11,6 @@ import UIKit
 import SwiftUI
 import shared
 
-//
 struct HomeScreen: View {
     
     @StateObject var viewModel = HomeViewModel()

@@ -19,6 +19,8 @@ struct DetailScreen: View {
     
     var quoteImage: QuoteImage
     
+    @StateObject var viewModel = QuoteViewModel()
+    
     var body: some View {
         VStack(alignment: .leading) {
             ZStack(alignment: .bottom)  {
@@ -37,18 +39,19 @@ struct DetailScreen: View {
                             .resizable()
                             .frame(width: 36, height: 36)
                     }
-                 
-                    Button(action: {
-
-                    }) {
-                      Image(systemName: "heart")
-                            .resizable()
-                            .frame(width: 36, height: 36)
-                    }
+                    
+                    Button(action: { Task { await viewModel.onClickFavorite()}}) {
+                            Image(systemName: viewModel.quote.isSaved ? "heart.fill" : "heart")
+                                .resizable()
+                                .frame(width: 36, height: 36)
+                        }
                 }.padding(10)
                     .background(Color(red: 0.5, green: 0.5, blue:0.5))
                     .cornerRadius(10)
             }
+        }.task {
+            viewModel.setQuote(quoteImage: quoteImage )
+            await  viewModel.initQuote(quoteId: quoteImage.id)
         }
     }
 }
