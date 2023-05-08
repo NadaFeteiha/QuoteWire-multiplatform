@@ -13,7 +13,7 @@ class RepositoryImp constructor(
      * Images
      * */
     override suspend fun getImagesWithQuote(page: Int): List<ImageDTO> {
-        return imageService.getQuoteWithImage().results ?: emptyList()
+        return imageService.getQuoteWithImage(page = page).results ?: emptyList()
     }
 
 }

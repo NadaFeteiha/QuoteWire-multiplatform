@@ -3,12 +3,9 @@ package com.myapplication.ui.screen.quoteView
 import android.Manifest
 import android.app.DownloadManager
 import android.content.Context
-import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Environment
 import android.widget.Toast
-import androidx.activity.compose.ManagedActivityResultLauncher
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
@@ -28,7 +25,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -66,7 +62,7 @@ fun QuoteViewScreen(
 
     QuoteViewContent(
         imageUrl = state.imageURL,
-        onClickShare = { shareImage(state.downloadLink, context = context) },
+        onClickShare = { shareImage(state.imageURL, context = context) },
         onClickDownload = {
             // TODO: enable download until Done downloading..
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
@@ -100,7 +96,7 @@ fun QuoteViewContent(
             verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            ButtonIcon(iconRes = R.drawable.heart, onClick = onClickShare)
+            ButtonIcon(iconRes = R.drawable.heart, onClick = onClickDownload)
 
             ButtonIcon(iconRes = R.drawable.share_icon, onClick = onClickShare)
 
