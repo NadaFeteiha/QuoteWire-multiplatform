@@ -1,15 +1,13 @@
 package di
 
-import com.squareup.sqldelight.db.SqlDriver
-import data.DatabaseDriverFactory
 import data.local.QuoteDataSource
 import data.local.QuoteDataSourceImp
 import data.remote.service.ImageService
 import data.repository.Repository
 import data.repository.RepositoryImp
-import data.sqldelight.QuoteDB
 import domain.mappers.ImageMapper
 import domain.usecase.GetImagesUseCase
+import domain.usecase.ManageFavoriteQuotesUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -22,15 +20,14 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}) = startKoin {
     appDeclaration()
     modules(
         platformModule(),
-        getSharedModules()
+        getUseCasesModules(),
+        getSharedModules(),
     )
 }
 
 fun getSharedModules() = module {
 
     single { ImageMapper() }
-
-    single { GetImagesUseCase() }
 
     single { CoroutineScope(Dispatchers.Default + SupervisorJob()) }
 
@@ -44,3 +41,7 @@ fun getSharedModules() = module {
 
 }
 
+fun getUseCasesModules() = module {
+    single { GetImagesUseCase() }
+    single { ManageFavoriteQuotesUseCase() }
+}

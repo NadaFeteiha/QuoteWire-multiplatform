@@ -6,5 +6,10 @@ import domain.models.QuoteImage
 interface QuoteDataSource {
     fun getAllQuotes(): List<QuoteEntity>
 
-    fun insertLaunch(quote: QuoteImage)
+    fun insertQuote(quote: QuoteImage)
+
+    fun deleteQuote(quoteId: String)
+
+    fun getQuoteById(quoteId: String): QuoteEntity?
+
 }

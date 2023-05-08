@@ -21,3 +21,5 @@ FROM quoteEntity;
 deleteQuote:
 DELETE FROM quoteEntity
 WHERE id = :id;
+
+

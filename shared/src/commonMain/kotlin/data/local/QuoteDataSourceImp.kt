@@ -16,11 +16,19 @@ class QuoteDataSourceImp(
         return dbQuery.getAllQuote().executeAsList()
     }
 
-    override fun insertLaunch(quote: QuoteImage) {
+    override fun insertQuote(quote: QuoteImage) {
         dbQuery.insertQuote(
             id = quote.id,
             imageUrl = quote.imageURL,
         )
+    }
+
+    override fun deleteQuote(quoteId: String) {
+        dbQuery.deleteQuote(quoteId)
+    }
+
+    override fun getQuoteById(quoteId: String): QuoteEntity? {
+        return dbQuery.getQuoteById(quoteId).executeAsOneOrNull()
     }
 
 }

@@ -1,7 +1,7 @@
 import data.DatabaseDriverFactory
 import data.sqldelight.QuoteDB
 import di.getSharedModules
-import di.platformModule
+import di.getUseCasesModules
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 
@@ -19,6 +19,7 @@ fun initKoin(){
         modules(
             iosModule,
             getSharedModules(),
+            getUseCasesModules()
         )
     }
 }

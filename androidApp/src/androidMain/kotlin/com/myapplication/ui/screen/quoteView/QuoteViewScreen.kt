@@ -62,7 +62,9 @@ fun QuoteViewScreen(
 
     QuoteViewContent(
         imageUrl = state.imageURL,
+        isSaved = state.isSaved,
         onClickShare = { shareImage(state.imageURL, context = context) },
+        onClickSave =  viewModel::onClickFavoriteIcon,
         onClickDownload = {
             // TODO: enable download until Done downloading..
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S_V2) {
@@ -72,16 +74,17 @@ fun QuoteViewScreen(
                 // Request WRITE_EXTERNAL_STORAGE permission for Android 10 and lower
                 downloadImage.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
             }
-        }
-    )
+        })
 }
 
 @Composable
 fun QuoteViewContent(
     modifier: Modifier = Modifier,
     imageUrl: String,
+    isSaved: Boolean,
     onClickShare: () -> Unit,
-    onClickDownload: () -> Unit
+    onClickDownload: () -> Unit,
+    onClickSave: () -> Unit
 ) {
     Box(modifier = modifier.fillMaxSize()) {
         Image(
@@ -96,7 +99,14 @@ fun QuoteViewContent(
             verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            ButtonIcon(iconRes = R.drawable.heart, onClick = onClickDownload)
+            ButtonIcon(
+                iconRes = if (isSaved) {
+                    R.drawable.heart_full
+                } else {
+                    R.drawable.heart
+                },
+                onClick = onClickSave
+            )
 
             ButtonIcon(iconRes = R.drawable.share_icon, onClick = onClickShare)
 

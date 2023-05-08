@@ -13,3 +13,4 @@ class ImageMapper : Mapper<ImageDTO, QuoteImage> {
         )
     }
 }
+
