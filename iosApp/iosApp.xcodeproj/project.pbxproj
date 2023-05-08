@@ -13,6 +13,8 @@
 		551AB47C29FBAD52002D6DA4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551AB47B29FBAD52002D6DA4 /* HomeViewModel.swift */; };
 		551AB47E29FBAE30002D6DA4 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551AB47D29FBAE30002D6DA4 /* HomeScreen.swift */; };
 		553B59912A023360002A8AC6 /* DetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553B59902A023360002A8AC6 /* DetailScreen.swift */; };
+		55E910AA2A08F05F00BDD3D7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E910A92A08F05F00BDD3D7 /* libsqlite3.tbd */; };
+		55E910AC2A08F8D500BDD3D7 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E910AB2A08F8D500BDD3D7 /* libsqlite3.0.tbd */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		CFDB58B53BB94DE262B13C24 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1049432C0C2B312090ABF6 /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
@@ -25,6 +27,8 @@
 		551AB47B29FBAD52002D6DA4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		551AB47D29FBAE30002D6DA4 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		553B59902A023360002A8AC6 /* DetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; };
+		55E910A92A08F05F00BDD3D7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		55E910AB2A08F8D500BDD3D7 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		6B1049432C0C2B312090ABF6 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF7B242A565900829871 /* My application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +42,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55E910AC2A08F8D500BDD3D7 /* libsqlite3.0.tbd in Frameworks */,
+				55E910AA2A08F05F00BDD3D7 /* libsqlite3.tbd in Frameworks */,
 				CFDB58B53BB94DE262B13C24 /* Pods_iosApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,6 +62,8 @@
 		42799AB246E5F90AF97AA0EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				55E910AB2A08F8D500BDD3D7 /* libsqlite3.0.tbd */,
+				55E910A92A08F05F00BDD3D7 /* libsqlite3.tbd */,
 				6B1049432C0C2B312090ABF6 /* Pods_iosApp.framework */,
 			);
 			name = Frameworks;
