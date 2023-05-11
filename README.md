@@ -8,7 +8,7 @@ Quote Wire is a simple app that allows you to save and share quotes. It is built
 </p>
 </p>
 
-<img src="https://github.com/NadaFeteiha/BookStore/blob/main/app/src/main/res/raw/book2.gif" />
+<img src="https://github.com/NadaFeteiha/QuoteWire-multiplatform/blob/main/android.gif" />
 
 ## Built with
 - [Jetpack Compose](https://developer.android.com/jetpack/compose?gclid=CjwKCAiAzKqdBhAnEiwAePEjktk3ROIIxTqejhHWkDEwSaQqoE6GgrNHM8iYKw8xHx5SPPDu0oJ_DxoC8LYQAvD_BwE&gclsrc=aw.ds) for UI design. 
