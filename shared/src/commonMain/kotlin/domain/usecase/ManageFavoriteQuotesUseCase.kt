@@ -1,9 +1,7 @@
 package domain.usecase
 
-import data.repository.Repository
-import domain.mappers.ImageMapper
+import domain.Repository
 import domain.models.QuoteImage
-import kotlinx.coroutines.flow.Flow
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
