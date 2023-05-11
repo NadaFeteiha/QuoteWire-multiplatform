@@ -2,13 +2,13 @@
 <p align="center">  
 <i>“Think before you speak. Read before you think.” <i>
 
+Quote Wire is a simple app that allows you to save and share quotes. It is built using Kotlin Multiplatform, so it works on both Android and iOS.
+
 <p align="center">  
-
-
 </p>
 </p>
 
-<img src="https://github.com/NadaFeteiha/BookStore/blob/main/app/src/main/res/raw/book2.gif" align="right" width="320"/>
+<img src="https://github.com/NadaFeteiha/BookStore/blob/main/app/src/main/res/raw/book2.gif" />
 
 ## Built with
 - [Jetpack Compose](https://developer.android.com/jetpack/compose?gclid=CjwKCAiAzKqdBhAnEiwAePEjktk3ROIIxTqejhHWkDEwSaQqoE6GgrNHM8iYKw8xHx5SPPDu0oJ_DxoC8LYQAvD_BwE&gclsrc=aw.ds) for UI design. 
@@ -18,6 +18,13 @@
 - [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) architecture for clean separation of concerns and easy testing.
 - [Coroutines](https://developer.android.com/kotlin/coroutines) for asynchronous programming
 - [StateFlow](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow) for reactive programming
+
+## Features
+- [x] Get quotes from the internet
+- [x] Save quotes
+- [x] Share quotes
+- [ ] View a list of your saved quotes
+- [ ] Search for quotes
 
 ## Set up the environment
 
