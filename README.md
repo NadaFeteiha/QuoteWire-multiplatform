@@ -8,7 +8,7 @@
 <h5 align="center"> Quote Wire is a simple app that allows you to save and share quotes. It is built using Kotlin Multiplatform, so it works on both Android and iOS. </h5>
 
 ## Video
-[![Final video of fixing issues in your code in VS Code](http://img.youtube.com/vi/IevWloTEUNI/maxresdefault.jpg)](https://www.youtube.com/watch?v=IevWloTEUNI?autoplay=1) 
+[![Final video of fixing issues in your code in VS Code](http://img.youtube.com/vi/u4vbUA_eAps/maxresdefault.jpg)](https://www.youtube.com/watch?v=u4vbUA_eAps?autoplay=1) 
     
 ## Built with
 - [Jetpack Compose](https://developer.android.com/jetpack/compose?gclid=CjwKCAiAzKqdBhAnEiwAePEjktk3ROIIxTqejhHWkDEwSaQqoE6GgrNHM8iYKw8xHx5SPPDu0oJ_DxoC8LYQAvD_BwE&gclsrc=aw.ds) for UI design. 
