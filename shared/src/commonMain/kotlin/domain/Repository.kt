@@ -1,4 +1,4 @@
-package data.repository
+package domain
 
 import data.remote.response.image.ImageDTO
 import data.sqldelight.QuoteEntity

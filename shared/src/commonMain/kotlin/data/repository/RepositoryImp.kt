@@ -3,7 +3,8 @@ package data.repository
 import data.local.QuoteDataSource
 import data.remote.response.image.ImageDTO
 import data.remote.service.ImageService
-import domain.mappers.toDomain
+import domain.Repository
+import data.mappers.toDomain
 import domain.models.QuoteImage
 
 class RepositoryImp constructor(
