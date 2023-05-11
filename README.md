@@ -28,6 +28,7 @@
 
 ## App Structure
 
+![image](https://github.com/NadaFeteiha/QuoteWire-multiplatform/assets/34461597/fcc7261d-411d-46b9-a0db-6309e68eec68)
 
 ## shared
 This is a Kotlin module that contains the logic common(domain and data layers) for both Android and iOS applications, that is, the code you share between platforms.
