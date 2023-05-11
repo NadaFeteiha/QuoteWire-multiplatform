@@ -1,14 +1,11 @@
 <h1 align="center">Quote Wire Kotlin Multiplatform</h1>
 <p align="center">  
-<i>“Think before you speak. Read before you think.” <i>
 
-Quote Wire is a simple app that allows you to save and share quotes. It is built using Kotlin Multiplatform, so it works on both Android and iOS.
+<img  src="https://img.shields.io/badge/-KOTLIN-12100E?logo=kotlin&logoColor=white&style=for-the-badge">
+<img  src="https://img.shields.io/badge/-ANDROID-12100E?logo=android&logoColor=white&style=for-the-badge">
+<img  src="https://img.shields.io/badge/-IOS-12100E?logo=ios&logoColor=white&style=for-the-badge">
 
-<p align="center">  
-</p>
-</p>
-
-<img src="https://github.com/NadaFeteiha/QuoteWire-multiplatform/blob/main/android.gif" />
+<h5 align="center"> Quote Wire is a simple app that allows you to save and share quotes. It is built using Kotlin Multiplatform, so it works on both Android and iOS. </h5>
 
 ## Video
 [![Final video of fixing issues in your code in VS Code](http://img.youtube.com/vi/IevWloTEUNI/maxresdefault.jpg)](https://www.youtube.com/watch?v=IevWloTEUNI?autoplay=1) 
@@ -28,6 +25,22 @@ Quote Wire is a simple app that allows you to save and share quotes. It is built
 - [x] Share quotes
 - [ ] View a list of your saved quotes
 - [ ] Search for quotes
+
+## App Structure
+
+
+## shared
+This is a Kotlin module that contains the logic common(domain and data layers) for both Android and iOS applications, that is, the code you share between platforms.
+
+It uses Gradle as the build system. You can add dependencies and change settings in shared/build.gradle.kts. The shared module builds into an Android library and an iOS framework.
+
+## androidApp
+This is a Kotlin module that builds into an Android application. This module contains the android application's UI built using [Jetpack compose](https://developer.android.com/jetpack/compose).
+
+
+## iosApp
+This is an Xcode project that builds into an iOS application. It depends on and uses the shared module as a CocoaPods dependency and contains iOS code that holds the iosApp  UI built using [Swift UI](https://developer.apple.com/xcode/swiftui/)
+
 
 ## Set up the environment
 
@@ -77,21 +90,6 @@ Open the project in Android Studio and switch the view from **Android** to **Pro
 
 <img src="readme_images/open_project_view.png" height="300px">
 
-Your Compose Multiplatform project includes 3 modules:
-
-## shared
-This is a Kotlin module that contains the logic common for both Android and iOS applications, that is, the code you share between platforms.
-
-This shared module is also where you’ll write your Compose Multiplatform code. In shared/src/commonMain/kotlin/App.kt, you can find the shared root @Composable function for your app.
-
-It uses Gradle as the build system. You can add dependencies and change settings in shared/build.gradle.kts. The shared module builds into an Android library and an iOS framework.
-
-## androidApp
-This is a Kotlin module that builds into an Android application. It uses Gradle as the build system. The androidApp module depends on and uses the shared module as a regular Android library.
-
-## iosApp
-This is an Xcode project that builds into an iOS application. It depends on and uses the shared module as a CocoaPods dependency.
-  
 
 ## License: 
 
