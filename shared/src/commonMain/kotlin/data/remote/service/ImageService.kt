@@ -17,6 +17,7 @@ import kotlinx.serialization.json.Json
 
 class ImageService {
 
+    private val apiKey = "API_KEY"
     private val client = HttpClient {
         expectSuccess = true
         install(HttpTimeout) {
@@ -58,7 +59,7 @@ class ImageService {
     ): ImageResponse {
         return try {
             client.get {
-                quote("search/photos?query=$quote&orientation=$orientation&per_page=$numPerPage&page=$page&client_id=oQG-FbLBgfmCgktGaeJwDfBpAVxSGQxY9QOe1PWYges")
+                quote("search/photos?query=$quote&orientation=$orientation&per_page=$numPerPage&page=$page&client_id=$apiKey")
             }.body()
         } catch (throwable: Throwable) {
             throw throwable
