@@ -10,6 +10,8 @@ Quote Wire is a simple app that allows you to save and share quotes. It is built
 
 <img src="https://github.com/NadaFeteiha/QuoteWire-multiplatform/blob/main/android.gif" />
 
+[![Final video of fixing issues in your code in VS Code](http://img.youtube.com/vi/IevWloTEUNI/maxresdefault.jpg)](https://www.youtube.com/embed/IevWloTEUNI?autoplay=1) 
+    
 ## Built with
 - [Jetpack Compose](https://developer.android.com/jetpack/compose?gclid=CjwKCAiAzKqdBhAnEiwAePEjktk3ROIIxTqejhHWkDEwSaQqoE6GgrNHM8iYKw8xHx5SPPDu0oJ_DxoC8LYQAvD_BwE&gclsrc=aw.ds) for UI design. 
 - [SQLDelight](https://cashapp.github.io/sqldelight/2.0.0-alpha05/) for database management.
