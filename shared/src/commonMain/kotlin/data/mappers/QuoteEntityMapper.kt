@@ -1,4 +1,4 @@
-package domain.mappers
+package data.mappers
 
 import data.sqldelight.QuoteEntity
 import domain.models.QuoteImage

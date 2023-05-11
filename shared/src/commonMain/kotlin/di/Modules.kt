@@ -3,9 +3,8 @@ package di
 import data.local.QuoteDataSource
 import data.local.QuoteDataSourceImp
 import data.remote.service.ImageService
-import data.repository.Repository
 import data.repository.RepositoryImp
-import domain.mappers.ImageMapper
+import domain.Repository
 import domain.usecase.GetImagesUseCase
 import domain.usecase.ManageFavoriteQuotesUseCase
 import kotlinx.coroutines.CoroutineScope
@@ -26,8 +25,6 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}) = startKoin {
 }
 
 fun getSharedModules() = module {
-
-    single { ImageMapper() }
 
     single { CoroutineScope(Dispatchers.Default + SupervisorJob()) }
 

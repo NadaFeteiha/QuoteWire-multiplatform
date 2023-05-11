@@ -1,7 +1,7 @@
 package domain.usecase
 
-import data.repository.Repository
-import domain.mappers.ImageMapper
+import data.mappers.toDomain
+import domain.Repository
 import domain.models.QuoteImage
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -10,7 +10,6 @@ import org.koin.core.component.inject
 class GetImagesUseCase : KoinComponent {
 
     private val repository: Repository by inject()
-    private val imageMapper: ImageMapper by inject()
 
     private var page = 1
 
@@ -19,7 +18,7 @@ class GetImagesUseCase : KoinComponent {
         return try {
             val result = repository.getImagesWithQuote(page = page)
             page++
-            result.map { imageMapper.map(it) }
+            result.toDomain()
         } catch (throwable: Throwable) {
             throw throwable
         }
@@ -29,7 +28,7 @@ class GetImagesUseCase : KoinComponent {
         return try {
             val result = repository.getImagesWithQuote(page = page)
             page++
-            result.map { imageMapper.map(it) }
+            result.toDomain()
         } catch (throwable: Throwable) {
             throw throwable
         }
