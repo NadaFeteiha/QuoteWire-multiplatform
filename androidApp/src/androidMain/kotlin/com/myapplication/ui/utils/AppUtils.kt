@@ -12,13 +12,6 @@ fun copyToClipboard(context: Context, text: String) {
     clipboardManager.setPrimaryClip(clip)
 }
 
-fun shareText(context: Context, text: String) {
-    val shareIntent = Intent(Intent.ACTION_SEND)
-    shareIntent.type = "text/plain"
-    shareIntent.putExtra(Intent.EXTRA_TEXT, text)
-    context.startActivity(Intent.createChooser(shareIntent, "Share text"))
-}
-
 fun shareImage(image: String, context: Context) {
     val intent = Intent(Intent.ACTION_SEND).apply {
         type = "text/plain"

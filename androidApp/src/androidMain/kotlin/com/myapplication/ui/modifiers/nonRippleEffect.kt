@@ -1,4 +1,4 @@
-package ui.modifiers
+package com.myapplication.ui.modifiers
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource

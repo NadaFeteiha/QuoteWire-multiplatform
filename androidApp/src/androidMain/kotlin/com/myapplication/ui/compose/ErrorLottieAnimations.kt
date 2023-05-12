@@ -11,7 +11,7 @@ import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.myapplication.R
-import ui.modifiers.nonRippleEffect
+import com.myapplication.ui.modifiers.nonRippleEffect
 
 @Composable
 fun ErrorLottieAnimations(

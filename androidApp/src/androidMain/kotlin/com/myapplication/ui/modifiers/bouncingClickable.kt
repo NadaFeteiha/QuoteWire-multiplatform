@@ -18,14 +18,14 @@ fun Modifier.bouncingClickable(
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
 
-    val animationTransition = updateTransition(isPressed, label = "BouncingClickableTransition")
+    val animationTransition = updateTransition(isPressed, label = "")
     val scaleFactor by animationTransition.animateFloat(
-        targetValueByState = { pressed -> if (pressed) 0.94f else 1f },
-        label = "BouncingClickableScaleFactorTransition",
+        targetValueByState = { pressed -> if (pressed) 0.90f else 1f },
+        label = "",
     )
     val opacity by animationTransition.animateFloat(
-        targetValueByState = { pressed -> if (pressed) 0.7f else 1f },
-        label = "BouncingClickableOpacityTransition"
+        targetValueByState = { pressed -> if (pressed) 0.5f else 1f },
+        label = ""
     )
 
     this.graphicsLayer {
