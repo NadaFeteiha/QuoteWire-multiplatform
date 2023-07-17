@@ -1,4 +1,9 @@
 <h1 align="center">Quote Wire Kotlin Multiplatform</h1>
+
+<p align="center">  <a href="https://devlibrary.withgoogle.com/products/android/repos/NadaFeteiha-QuoteWire-multiplatform">
+    <img src="https://github.com/NadaFeteiha/QuoteWire-multiplatform/blob/main/large.png" alt="Google Dev Library Logo" style="width:300px;"/>
+</a></p>
+
 <p align="center">  
 
 <img  src="https://img.shields.io/badge/-KOTLIN-12100E?logo=kotlin&logoColor=white&style=for-the-badge">
